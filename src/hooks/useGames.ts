@@ -21,17 +21,22 @@ interface FetchGamesResponse {
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([])
   const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const controller = new AbortController()
 
+    setIsLoading(true)
     fetch(
       'https://api.rawg.io/api/games?' +
         new URLSearchParams({ key: 'fde7be0582c74645b254ba5c0c2587a4' }),
       { signal: controller.signal },
     )
       .then((res) => {
-        if (res.ok) return res.json()
+        if (res.ok) {
+          setIsLoading(false)
+          return res.json()
+        }
 
         switch (res.status) {
           case 404:
@@ -44,12 +49,13 @@ const useGames = () => {
       .catch((err) => {
         if (err.name === 'AbortError') return
         setError(err.message)
+        setIsLoading(false)
       })
 
     return () => controller.abort()
   }, [])
 
-  return { games, error }
+  return { games, error, isLoading }
 }
 
 export default useGames

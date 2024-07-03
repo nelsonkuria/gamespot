@@ -16,11 +16,12 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, error } = useGenres()
+  const { data, isPending, error } = useGenres()
+  const genres = data?.results || []
 
-  if (error) return null
+  if (error) return <p>{error.message}</p>
 
-  if (isLoading) return <Spinner />
+  if (isPending) return <Spinner />
 
   return (
     <>

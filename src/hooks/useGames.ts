@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import ms from 'ms'
-import { GameQuery } from '../App'
 import { fetchAsync, formatQuery } from '../services/async'
+import useGameQueryStore from '../store'
 import { FetchResponse } from './useData'
 import { Platform } from './usePlatforms'
 export interface Game {
@@ -13,7 +13,8 @@ export interface Game {
   rating_top: number
 }
 
-const useGames = (gameQuery: GameQuery) => {
+const useGames = () => {
+  const gameQuery = useGameQueryStore((s) => s.gameQuery)
   const query = Object.keys(gameQuery).length ? gameQuery : null
 
   return useQuery<FetchResponse<Game>, Error>({

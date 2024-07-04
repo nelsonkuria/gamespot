@@ -2,8 +2,8 @@ import { GameQuery } from '../App'
 
 export function formatQuery(query: GameQuery) {
   const params: { [key: string]: string } = {
-    genres: query.genre?.id ? `${query.genre?.id}` : '',
-    parent_platforms: query.platform?.id ? `${query.platform?.id}` : '',
+    genres: query.genreId ? `${query.genreId}` : '',
+    parent_platforms: query.platformId ? `${query.platformId}` : '',
     ordering: query.sortOrder,
     search: query.searchText,
   }

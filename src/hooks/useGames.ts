@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
+import ms from 'ms'
 import { GameQuery } from '../App'
+import { fetchAsync, formatQuery } from '../services/async'
 import { FetchResponse } from './useData'
 import { Platform } from './usePlatforms'
-import { fetchAsync, formatQuery } from '../services/async'
 export interface Game {
   id: number
   name: string
@@ -18,7 +19,7 @@ const useGames = (gameQuery: GameQuery) => {
   return useQuery<FetchResponse<Game>, Error>({
     queryKey: query ? ['games', { ...formatQuery(gameQuery) }] : ['games'],
     queryFn: () => fetchAsync('/games', query),
-    staleTime: 60 * 1000,
+    staleTime: ms('24h'),
   })
 }
 

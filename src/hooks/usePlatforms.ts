@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { FetchResponse } from './useData'
+import ms from 'ms'
 import { fetchAsync } from '../services/async'
+import { FetchResponse } from './useData'
 
 export interface Platform {
   id: number
@@ -12,7 +13,7 @@ const usePlatforms = () => {
   return useQuery<FetchResponse<Platform>, Error>({
     queryKey: ['platforms'],
     queryFn: () => fetchAsync('/platforms/lists/parents'),
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours,
+    staleTime: ms('24h'),
   })
 }
 

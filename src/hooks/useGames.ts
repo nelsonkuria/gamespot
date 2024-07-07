@@ -2,18 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import ms from 'ms'
 import { fetchAsync, formatQuery } from '../services/async'
 import useGameQueryStore from '../store'
-import { FetchResponse } from './useData'
-import { Platform } from './usePlatforms'
-export interface Game {
-  id: number
-  name: string
-  slug: string
-  description_raw: string
-  background_image: string
-  parent_platforms: { platform: Platform }[]
-  metacritic: number
-  rating_top: number
-}
+import type { Game } from '../types/Game'
+import type { FetchResponse } from './useData'
 
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery)

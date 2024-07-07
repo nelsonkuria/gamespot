@@ -3,11 +3,7 @@ import ms from 'ms'
 import { FetchResponse } from './useData'
 import genres from '../data/genres'
 import { fetchAsync } from '../services/async'
-export interface Genre {
-  id: number
-  name: string
-  image_background: string
-}
+import type { Genre } from '../types/Genre'
 
 const useGenres = () => {
   return useQuery<FetchResponse<Genre>, Error>({

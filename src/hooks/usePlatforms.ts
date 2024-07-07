@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import ms from 'ms'
 import { fetchAsync } from '../services/async'
 import { FetchResponse } from './useData'
-import { Platform } from '../types/Platform'
+import Platform from '../types/Platform'
 
 const usePlatforms = () => {
   return useQuery<FetchResponse<Platform>, Error>({

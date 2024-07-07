@@ -1,6 +1,6 @@
 # Gamespot
 
-This is a simple practice project inspired by others
+This is a simple practice project inspired by others. Built using React and TypeScript
 
 ## Running locally
 

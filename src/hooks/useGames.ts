@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import ms from 'ms'
 import { fetchAsync, formatQuery } from '../services/async'
 import useGameQueryStore from '../store'
-import type { Game } from '../types/Game'
+import type Game from '../types/Game'
 import type { FetchResponse } from './useData'
 
 const useGames = () => {

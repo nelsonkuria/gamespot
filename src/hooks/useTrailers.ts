@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import ms from 'ms'
 import { fetchAsync } from '../services/async'
-import type { Trailer } from '../types/Trailer'
+import type Trailer from '../types/Trailer'
 import { FetchResponse } from './useData'
 
 const useTrailers = (gameId: number) =>

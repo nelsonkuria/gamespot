@@ -4,7 +4,7 @@ This is a simple practice project inspired by others
 
 ## Running locally
 
-Clone the respository `git clone https://github.com/nkuriam/game-spot.git` and then `npm run dev`
+Clone the respository `git clone https://github.com/nkuriam/gamespot.git` and then `npm run dev`
 
 ## Next steps
 
